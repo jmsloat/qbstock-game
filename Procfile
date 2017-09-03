@@ -1,1 +1,1 @@
-web: gunicorn qbstock
+web: gunicorn qbstock:app
