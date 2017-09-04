@@ -28,29 +28,27 @@
             <tr>
                 <td class="center aligned" colspan="6"><b>First Tier</b></td>
             </tr>
+
+            {% for qb in quarterbacks[1] %}
+                {{ render_qb(qb) }}
+            {% endfor %}
+
             <tr>
-                <td>
-                    Matt Ryan
-                </td>
-                <td>
-                    ATL
-                </td>
-                <td>
-                    -
-                </td>
-                <td>
-                    83.3
-                </td>
-                <td>
-                    0
-                </td>
-                <td>
-                    $8.33
-                </td>
+                <td class="center aligned" colspan="6"><b>Second Tier</b></td>
             </tr>
+
+            {% for qb in quarterbacks[2] %}
+                {{ render_qb(qb) }}
+            {% endfor %}
+
             <tr>
-                <td colspan="6">Second Tier</td>
+                <td class="center aligned" colspan="6"><b>Third Tier</b></td>
             </tr>
+
+            {% for qb in quarterbacks[3] %}
+                {{ render_qb(qb) }}
+            {% endfor %}
+
             </tbody>
         </table>
     </div>
@@ -65,3 +63,26 @@
         HELLO WORLD
     </div>
 {% endblock %}
+
+{% macro render_qb(qb) %}
+    <tr>
+        <td>
+            {{ qb['name'] }}
+        </td>
+        <td>
+            {{ qb['team'] }}
+        </td>
+        <td>
+            {{ qb['prior_tier'] }}
+        </td>
+        <td>
+            {{ qb['qbr'] }}
+        </td>
+        <td>
+            {{ qb['wl_diff'] }}
+        </td>
+        <td>
+            ${{ qb['ipo'] }}
+        </td>
+    </tr>
+{% endmacro %}

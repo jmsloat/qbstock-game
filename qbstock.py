@@ -10,7 +10,7 @@ app = Flask(__name__)
 def hello_world():
     all = quarterbacks.QuarterbackRepository().get_all()
 
-    return render_template('index.html')
+    return render_template('index.html', quarterbacks=all)
 
 
 if __name__ == '__main__':
