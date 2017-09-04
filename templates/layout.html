@@ -1,68 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-	<body id="container">
-   		<div id="header">
-   			{% block head %}
-				<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
-				<meta charset="UTF-8">
-				<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
-				<!-- jQuery -->
-				<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<body id="container">
+<div id="header">
+    {% block head %}
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+        <!-- jQuery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-				<!-- Semantic Main CSS -->
-				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+        <!-- Semantic Main CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
 
-				<!-- Semantic Reset CSS -->
-				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/components/reset.min.css"/>
+        <!-- Semantic Reset CSS -->
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/components/reset.min.css"/>
 
-				<!-- Semantic Menu CSS -->
-				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/components/menu.min.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/components/container.css"/>
 
-				<!-- Main Semantic JS  -->
-			    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+        <!-- Semantic Menu CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/components/menu.min.css"/>
 
-				<!-- Custom CSS -->
-				<link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+        <!-- Main Semantic JS  -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
 
-				<!-- Browser tab name -->
-				<title>{{ title }}</title>
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
 
-				<!-- Navbar -->
-				<div class="ui attached inverted menu">
-                    <div class="left menu">
-                        QB Stocks
-                    </div>
-				 	<div class="right menu">
-				 		<!-- User is logged in -->
-				      		<div class="item">
-				        		<a class="ui primary button" href="/user/account">James Sloat</a>
-				    		</div>
-				    		<div class="item">
-				        		<a class="ui default button" href="/user/signout">Sign out</a>
-				    		</div>
-			          	<!-- User is not logged in -->
-			  		</div>
-				</div>
-			{% endblock %}
-   		</div>
-   		<!-- Message flashing -->
-		{% with messages = get_flashed_messages(with_categories=true) %}
-		  	{% if messages %}
-		    	<ul>
-		    		{% for category, message in messages %}
-		      			<li class="ui {{ category }} message flash">{{ message }}</li>
-		    		{% endfor %}
-		    	</ul>
-		  	{% endif %}
-		{% endwith %}
-   		<div id="body" class="body">
-   			{% block content %}{% endblock %}
-   		</div>
-		<div id="footer">
-			<div class="ui divider"></div>
-	    		<div class="ui divided horizontal footer link list">
-	    		</div>
-	  		</div>
-		</div>
-	</body>
+        <!-- Browser tab name -->
+        <title>{{ title }}</title>
+
+        <!-- Navbar -->
+        <div class="ui attached inverted stackable menu">
+            <div class="ui container">
+                <a href="#" class="header item">
+                    <i class="home icon"></i>
+{#                    <img class="logo" src="{{ url_for('static', filename='img/logo.png') }}">#}
+                    QB Stock Game
+                </a>
+                <div class="ui container">
+                    <a href="#" class="item">Home</a>
+                </div>
+                <div class="ui container">
+                    <a href="#" class="item">Transaction</a>
+                </div>
+                <div class="ui container">
+                    <a href="#" class="item">Performance</a>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+</div>
+<!-- Message flashing -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <ul>
+            {% for category, message in messages %}
+                <li class="ui {{ category }} message flash">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+<div id="body" class="ui main text container">
+    {% block content %}{% endblock %}
+</div>
+<div id="footer">
+    <div class="ui divider"></div>
+    <div class="ui divided horizontal footer link list">
+    </div>
+</div>
+</div>
+</body>
 </html>

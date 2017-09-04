@@ -1,1 +1,67 @@
 {% extends "layout.html" %}
+
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="ui raised very padded container segment">
+        <h2 class="ui header">
+            All QBs
+        </h2>
+
+        <table class="ui celled table">
+            <thead>
+            <tr>
+                <th>Quarterback</th>
+                <th>Team</th>
+                <th>Prior Tier</th>
+                <th>QBR</th>
+                <th>W/L Diff (last 4)</th>
+                <th>IPO</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td class="center aligned" colspan="6"><b>First Tier</b></td>
+            </tr>
+            <tr>
+                <td>
+                    Matt Ryan
+                </td>
+                <td>
+                    ATL
+                </td>
+                <td>
+                    -
+                </td>
+                <td>
+                    83.3
+                </td>
+                <td>
+                    0
+                </td>
+                <td>
+                    $8.33
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6">Second Tier</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="ui raised very padded container segment">
+        <h2 class="ui header">
+            My Qbs
+        </h2>
+    </div>
+
+    <div>
+        HELLO WORLD
+    </div>
+{% endblock %}
