@@ -12,6 +12,11 @@ def hello_world():
 
     return render_template('index.html', quarterbacks=all)
 
+@app.route('/transaction')
+def transaction():
+    all = quarterbacks.QuarterbackRepository().get_all()
+    return render_template('transaction.html', quarterbacks = all)
+
 
 if __name__ == '__main__':
     app.run()
