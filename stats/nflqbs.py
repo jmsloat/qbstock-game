@@ -1,9 +1,17 @@
 import requests
+from pyquery import PyQuery as pq
+
 
 def main():
-    r = requests.get('http://www.nfl.com/stats/categorystats?tabSeq=1&season=2017&seasonType=PRE&d-447263-n=1&d-447263-o=2&d-447263-p=1&statisticPositionCategory=QUARTERBACK&d-447263-s=PASSING_PASSER_RATING')
+    r = requests.get('http://www.espn.com/nfl/qbr/_/type/player-week/week/3')
     print(r.status_code)
-    print(r.text)
+
+    d = pq(r.content)
+
+    for x in d('tr').items():
+        print(x.html())
+        name = x('a')
+        print(name)
 
 
 if __name__ == '__main__':
